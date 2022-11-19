@@ -26,7 +26,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<ScrapRefinedDbContext>();
 		builder.Services.AddSingleton<ProductRepository>();
 		builder.Services.AddSingleton<IndexViewModel>();
-		builder.Services.AddTransient<ProductDetailViewModel>();
+		builder.Services.AddScoped<ProductDetailViewModel>();
         builder.Services.AddTransient<AddProductViewModel>();
         builder.Services.AddTransient<CategoryViewModel>();
 
