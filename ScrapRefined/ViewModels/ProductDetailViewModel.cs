@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using ScrapRefined.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,15 @@ namespace ScrapRefined.ViewModels
     public class ProductDetailViewModel
     {
         private NavigationManager _navigationManager;
+        public Product SelectedProduct { get; set; }
 
         public ProductDetailViewModel(NavigationManager navigationManager)
         {
             _navigationManager = navigationManager;
         }
-        public async Task OpenDetails()
+        public void OpenDetails(Product product)
         {
+            SelectedProduct = product;
             _navigationManager.NavigateTo("/DetailsPage", false);
         }
 

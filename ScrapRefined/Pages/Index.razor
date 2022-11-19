@@ -1,36 +1,78 @@
 ﻿@page "/"
 @using ScrapRefined.ViewModels
 @inject IndexViewModel indexVM
+@inject ProductDetailViewModel productDetailsVM
+@using WMBlazorSlickCarousel.WMBSC
 
-<div class="container-fluid d-flex flex-column vh-100" style="background-color:#e0e0e0">
-    <div class=" container">
-        <div class="col">
-            <div class="row mt-3">
-                <div class="d-flex">
-                    <div class="p-0 flex-grow-1">
-                        <div class="form-outline">
-                        <input type="search" id="form1" class="form-control" />
-                        
-                    </div>
-                    </div>
-                    <div class="p-0">
-                        <button type="button" class="btn btn-primary" style="background-color:#1f6a53; border-color:#e0e0e0">
-                            <i class="bi bi-search fs-6" style="color:#e0e0e0"></i>
-                        </button>
+@if(indexVM.Products.Count() == 0){
+    <p>Loading</p>
+}
+else
+{
+    <div class="container-fluid d-flex flex-column vh-100" style="background-color:#e0e0e0">
+        <div class=" container">
+            <div class="col">
+                <div class="row mt-3">
+                    <div class="d-flex">
+                        <div class="p-0 flex-grow-1">
+                            <div class="form-outline">
+                                <input type="search" id="form1" class="form-control" />
+
+                            </div>
+                        </div>
+                        <div class="p-0">
+                            <button type="button" class="btn btn-primary" style="background-color:#1f6a53; border-color:#e0e0e0">
+                                <i class="bi bi-search fs-6" style="color:#e0e0e0"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <BlazorSlickCarousel @ref="theCarousel" Configurations="configurations">
+                        <BlazorSlickCarouselContent>
+                            @foreach(var product in indexVM.Products.Take(5))
+                            {
+                            <div @onclick="() => productDetailsVM.OpenDetails(product)" >
+                                    <img src="@product.CoverURL" alt="">
+                                </div>
+                            }
+                        </BlazorSlickCarouselContent>
+                        <BlazorSlickCarouselLoading>
+                            <p>Loading...</p>
+                        </BlazorSlickCarouselLoading>
+                    </BlazorSlickCarousel>
                 </div>
-            <div class="row">
-               
             </div>
         </div>
     </div>
-</div>
+
+}
+
 
 
 @code{
+    public BlazorSlickCarousel theCarousel;
+    public WMBSCInitialSettings configurations;
+
+    public void Test()
+    {
+        var a = "";
+    }
+
     protected override async Task OnInitializedAsync()
     {
         await indexVM.LoadProducts();
+    }
+
+    protected override void OnInitialized()
+    {
+        configurations = new WMBSCInitialSettings
+            {
+                arrows = true,
+                dots = false,
+                slidesToShow = 1,
+                slidesToScroll = 1,
+                infinite = false
+            };
     }
 }
