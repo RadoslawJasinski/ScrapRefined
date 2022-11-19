@@ -28,6 +28,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IndexViewModel>();
 		builder.Services.AddTransient<ProductDetailViewModel>();
         builder.Services.AddTransient<AddProductViewModel>();
+        builder.Services.AddTransient<CategoryViewModel>();
 
         //builder.Services.AddSingleton<WeatherForecastService>();
 
