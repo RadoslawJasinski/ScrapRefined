@@ -26,6 +26,7 @@ public static class MauiProgram
 		builder.Services.AddSingleton<ScrapRefinedDbContext>();
 		builder.Services.AddSingleton<ProductRepository>();
 		builder.Services.AddSingleton<IndexViewModel>();
+		builder.Services.AddTransient<ProductDetailViewModel>();
         //builder.Services.AddSingleton<WeatherForecastService>();
 
         return builder.Build();

@@ -1,4 +1,7 @@
-﻿@*<div class="container-fluid fixed-bottom bg-success text-center vh-100 p-0" style="max-height:50px">
+﻿@using ScrapRefined.ViewModels;
+@inject ProductDetailViewModel productDetailsVM
+
+@*<div class="container-fluid fixed-bottom bg-success text-center vh-100 p-0" style="max-height:50px">
     <div class="container">
         <div class="row">
             <div class="col text-center m-0 mt-auto align-content-center p-0">
@@ -34,7 +37,7 @@
 <div class="container-fluid fixed-bottom bg-success p-0 vh-100" style="max-height:50px">
 <nav class="nav nav-pills nav-fill h-100">
         <button class="border-0 bg-transparent nav-item" @onclick="addPage"> <i class="bi bi-plus-circle fs-2"  /></button>
-        <button class="border-0 bg-transparent nav-item" @onclick="detailsPage"> <i class="bi bi-plus-circle fs-2" /></button>
+        <button class="border-0 bg-transparent nav-item" @onclick="() => productDetailsVM.OpenDetails()"> <i class="bi bi-plus-circle fs-2" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
@@ -47,6 +50,6 @@
     }
     private void detailsPage()
     {
-        App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+       
     }
 }
