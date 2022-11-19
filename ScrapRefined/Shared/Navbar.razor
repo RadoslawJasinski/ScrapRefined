@@ -1,8 +1,52 @@
-﻿
+﻿@*<div class="container-fluid fixed-bottom bg-success text-center vh-100 p-0" style="max-height:50px">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center m-0 mt-auto align-content-center p-0">
+                <button class="border-0 bg-transparent ">
+                    <i class="bi bi-plus-circle "/>
+                 </button>
+            </div>
+            <div class="col text-center m-0 mt-auto  p-0">
+                <button class="border-0 bg-transparent ">
+                    <i class="bi bi-plus-circle" ></i>
+                </button>
+            </div>
+            <div class="col text-center m-0 mt-auto p-0">
+                <button class="border-0 bg-transparent ">
+                    <i class="bi bi-plus-circle" />
+                </button>
+            </div>
+            <div class="col text-center m-0 mt-auto p-0">
+                <button class="border-0 bg-transparent ">
+                    <i class="bi bi-plus-circle" />
+                </button>
+            </div>
+            <div class="col text-center m-0 mt-auto p-0">
+                <button class="border-0 bg-transparent ">
+                    <i class="bi bi-plus-circle" />
+                 </button>
+            </div>
+        </div>
+    </div>    
+</div>
+*@
 
-<div class="container-fluid fixed-bottom bg-success" style="max-height:150px">
-    <h3>Navbar</h3>
+<div class="container-fluid fixed-bottom bg-success p-0 vh-100" style="max-height:50px">
+<nav class="nav nav-pills nav-fill h-100">
+        <button class="border-0 bg-transparent nav-item" @onclick="addPage"> <i class="bi bi-plus-circle fs-2"  /></button>
+        <button class="border-0 bg-transparent nav-item" @onclick="detailsPage"> <i class="bi bi-plus-circle fs-2" /></button>
+        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
+        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
+        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-plus-circle fs-2" /></button>
+</nav>
 </div>
 @code {
-
+    private void addPage()
+    {
+        
+    }
+    private void detailsPage()
+    {
+        App.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+    }
 }
