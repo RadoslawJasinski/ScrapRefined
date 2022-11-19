@@ -1,22 +1,16 @@
 ﻿@using ScrapRefined.ViewModels;
 @inject ProductDetailViewModel productDetailsVM
 @inject AddProductViewModel addProductVM
+@inject CategoryViewModel categoryVM
 <div class="container-fluid fixed-bottom p-0 vh-100" style="max-height:50px; background-color:#1f6a53;">
 <nav class="nav nav-pills nav-fill h-100">
-        <button class="border-0 bg-transparent nav-item" @onclick="addPage"> <i class="bi bi-list fs-2" style="color:#e0e0e0" /></button>
-        <button class="border-0 bg-transparent nav-item" @onclick="() => productDetailsVM.OpenDetails()"> <i class="bi bi-heart fs-2" style="color:#e0e0e0" /></button>
+        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-list fs-2" style="color:#e0e0e0" /></button>
+        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-heart fs-2" style="color:#e0e0e0" /></button>
         <button class="border-0 bg-transparent nav-item" @onclick="() => addProductVM.openAddProduct()"> <i class="bi bi-plus-circle fs-2" style="color:#e0e0e0" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-book fs-2" style="color:#e0e0e0" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-person fs-2" style="color:#e0e0e0" /></button>
 </nav>
 </div>
 @code {
-    private void addPage()
-    {
-        
-    }
-    private void detailsPage()
-    {
-       
-    }
+
 }

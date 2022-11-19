@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using ScrapRefined.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,20 +7,17 @@ using System.Threading.Tasks;
 
 namespace ScrapRefined.ViewModels
 {
-    public class ProductDetailViewModel
+    public class CategoryViewModel
     {
         private NavigationManager _navigationManager;
-        public Product SelectedProduct { get; set; }
 
-        public ProductDetailViewModel(NavigationManager navigationManager)
+        public CategoryViewModel(NavigationManager navigationManager)
         {
             _navigationManager = navigationManager;
         }
-        public void OpenDetails(Product product)
+        public async Task OpenCategory()
         {
-            SelectedProduct = product;
-            _navigationManager.NavigateTo("/DetailsPage", false);
+            _navigationManager.NavigateTo("/CategoryPage", false);
         }
-
     }
 }

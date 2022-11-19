@@ -24,7 +24,7 @@ namespace ScrapRefined.Data
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _dbContext.Products.ToListAsync();
+            return await _dbContext.Products.Include(x => x.Category).ToListAsync();
         }
 
     }
