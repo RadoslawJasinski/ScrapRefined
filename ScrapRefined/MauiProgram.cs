@@ -22,8 +22,8 @@ public static class MauiProgram
 		#if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-
-		builder.Services.AddSingleton<ScrapRefinedDbContext>();
+        builder.Services.AddWMBSC();		//slider
+        builder.Services.AddSingleton<ScrapRefinedDbContext>();
 		builder.Services.AddSingleton<ProductRepository>();
 		builder.Services.AddSingleton<IndexViewModel>();
 		builder.Services.AddTransient<ProductDetailViewModel>();
