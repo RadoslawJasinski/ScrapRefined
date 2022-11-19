@@ -1,4 +1,6 @@
 ﻿@page "/"
+@using ScrapRefined.ViewModels
+@inject IndexViewModel indexVM
 
 <div class="container-fluid d-flex flex-column vh-100">
     <div class=" container">
@@ -26,5 +28,9 @@
 </div>
 
 
-@*<SurveyPrompt Title="How is Blazor working for you?" />
-*@
+@code{
+    protected override async Task OnInitializedAsync()
+    {
+        await indexVM.LoadProducts();
+    }
+}
