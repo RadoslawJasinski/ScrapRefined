@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
-using Microsoft.EntityFrameworkCore;
-using ScrapRefined.DAL;
+﻿using ScrapRefined.DAL;
 using ScrapRefined.Data;
 using ScrapRefined.ViewModels;
 
@@ -29,8 +27,6 @@ public static class MauiProgram
 		builder.Services.AddScoped<ProductDetailViewModel>();
         builder.Services.AddTransient<AddProductViewModel>();
         builder.Services.AddTransient<CategoryViewModel>();
-
-        //builder.Services.AddSingleton<WeatherForecastService>();
 
         return builder.Build();
 	}

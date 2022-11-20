@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 
 namespace ScrapRefined.Data
 {
-    //internal class ProductRepository
-    //{
-    //}
-
     public class ProductRepository
     {
         private readonly ScrapRefinedDbContext _dbContext;
@@ -24,7 +20,10 @@ namespace ScrapRefined.Data
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            return await _dbContext.Products.Include(x => x.Category).ToListAsync();
+            return await _dbContext.Products
+                                    .Include(x => x.Category)
+                                    .Include(x => x.Images)
+                                    .ToListAsync();
         }
 
     }
