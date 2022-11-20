@@ -1,5 +1,8 @@
 ﻿@page "/ListObserved"
-<h3>ListObservedPage</h3>
+@using ScrapRefined.ViewModels;
+@inject IndexViewModel indexVM
+@inject ProductDetailViewModel productDetailsVM
+<h3 class="text-center">ListObservedPage</h3>
 <div class="list-group">
     @foreach (var product in indexVM.Products.Take(indexVM.Products.Count()))
     {
