@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScrapRefined.DAL;
 
@@ -10,9 +11,10 @@ using ScrapRefined.DAL;
 namespace ScrapRefined.Migrations
 {
     [DbContext(typeof(ScrapRefinedDbContext))]
-    partial class ScrapRefinedDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221120003430_addTags2")]
+    partial class addTags2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -116,7 +118,12 @@ namespace ScrapRefined.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Tag");
                 });
@@ -207,6 +214,13 @@ namespace ScrapRefined.Migrations
                     b.Navigation("Tag");
                 });
 
+            modelBuilder.Entity("ScrapRefined.Models.Tag", b =>
+                {
+                    b.HasOne("ScrapRefined.Models.Product", null)
+                        .WithMany("Tags")
+                        .HasForeignKey("ProductId");
+                });
+
             modelBuilder.Entity("ScrapRefined.Models.UserFavouriteProduct", b =>
                 {
                     b.HasOne("ScrapRefined.Models.Product", "Product")
@@ -225,6 +239,8 @@ namespace ScrapRefined.Migrations
             modelBuilder.Entity("ScrapRefined.Models.Product", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("ScrapRefined.Models.User", b =>
