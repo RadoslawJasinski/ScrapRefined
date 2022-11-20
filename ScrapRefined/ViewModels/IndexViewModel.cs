@@ -1,4 +1,5 @@
-﻿using ScrapRefined.Data;
+﻿using Microsoft.AspNetCore.Components;
+using ScrapRefined.Data;
 using ScrapRefined.Models;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,23 @@ namespace ScrapRefined.ViewModels
 {
     public class IndexViewModel
     {
+        private NavigationManager _navigationManager;
         ProductRepository _productRepository;
         public IEnumerable<Product> Products { get; set; } = new List<Product>();
-        public IndexViewModel(ProductRepository productRepository)
+        
+        public IndexViewModel(ProductRepository productRepository, NavigationManager navigationManager)
         {
+            _navigationManager = navigationManager;
             _productRepository = productRepository;
         }
+
 
         public async Task LoadProducts()
         {
             Products = await _productRepository.GetAllAsync();
         }
+
+
+
     }
 }
