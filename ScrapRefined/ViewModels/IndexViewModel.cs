@@ -11,23 +11,20 @@ namespace ScrapRefined.ViewModels
 {
     public class IndexViewModel
     {
-        private NavigationManager _navigationManager;
         ProductRepository _productRepository;
         public IEnumerable<Product> Products { get; set; } = new List<Product>();
-        
-        public IndexViewModel(ProductRepository productRepository, NavigationManager navigationManager)
+        public IEnumerable<Product> AllProducts { get; set; } = new List<Product>();
+        public bool IsFirstLoading { get; set; } = true;
+
+        public IndexViewModel(ProductRepository productRepository)
         {
-            _navigationManager = navigationManager;
             _productRepository = productRepository;
         }
 
-
         public async Task LoadProducts()
         {
-            Products = await _productRepository.GetAllAsync();
+            AllProducts = await _productRepository.GetAllAsync();
+            Products = AllProducts;
         }
-
-
-
     }
 }
