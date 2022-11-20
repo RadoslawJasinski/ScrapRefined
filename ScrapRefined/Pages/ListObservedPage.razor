@@ -2,19 +2,15 @@
 @using ScrapRefined.ViewModels;
 @inject IndexViewModel indexVM
 @inject ProductDetailViewModel productDetailsVM
-<h3 class="text-center">ListObservedPage</h3>
-<div class="list-group">
+<h3 class="text-center" style="background-color:#e0e0e0">Observed List</h3>
+<div class="list-group" style="background-color:#e0e0e0">
     @foreach (var product in indexVM.Products.Take(indexVM.Products.Count()))
     {
-        <div @onclick="() => productDetailsVM.OpenDetails(product)">
-            <img src="@product.CoverURL" alt="">
+        <div @onclick="() => productDetailsVM.OpenDetails(product)" class="text-center border border-2" style="border-color:#1f6a53">
+            <h2 class="text-center">@product.Name</h2>
+            <img src="@product.CoverURL" class="w-75 h-50 text-center" alt="">
         </div>
     }
-    <button type="button" class="list-group-item list-group-item-action active"></button>
-    <button type="button" class="list-group-item list-group-item-action"></button>
-    <button type="button" class="list-group-item list-group-item-action"></button>
-    <button type="button" class="list-group-item list-group-item-action"></button>
-    <button type="button" class="list-group-item list-group-item-action"></button>
 </div>
 @code {
 
