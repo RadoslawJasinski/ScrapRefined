@@ -28,6 +28,7 @@ public static class MauiProgram
         builder.Services.AddTransient<AddProductViewModel>();
         builder.Services.AddTransient<CategoryViewModel>();
         builder.Services.AddSingleton<NavbarViewModel>();
+        builder.Services.AddSingleton<ListObsevedViewModel>();
         return builder.Build();
 	}
 }
