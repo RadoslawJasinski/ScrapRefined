@@ -32,7 +32,7 @@ else
                 <div class="row mt-3">
                     <BlazorSlickCarousel @ref="theCarousel" Configurations="configurations">
                         <BlazorSlickCarouselContent>
-                            @foreach(var product in indexVM.Products.Take(5))
+                            @foreach (var product in indexVM.Products.Take(indexVM.Products.Count()))
                             {
                             <div @onclick="() => productDetailsVM.OpenDetails(product)" >
                                     <img src="@product.CoverURL" alt="">
@@ -56,6 +56,7 @@ else
     public BlazorSlickCarousel theCarousel;
     public WMBSCInitialSettings configurations;
     private string nameFilter = string.Empty;
+    bool isFiletred = false;
     public IEnumerable<Product> ProductsFilter { get; set; } = new List<Product>();
 
     protected override async Task OnInitializedAsync()
@@ -67,7 +68,13 @@ else
     }
     private void Filter()
     {
-        ProductsFilter = indexVM.Products.Where(x => x.Name.ToLower().Contains(nameFilter.Trim().ToLower())).ToList();
+        if(isFiletred == false)
+        {
+            ProductsFilter = indexVM.Products;
+            isFiletred = true;
+        }
+
+        indexVM.Products = ProductsFilter.Where(x => x.Name.ToLower().Contains(nameFilter.Trim().ToLower())).ToList();
     }
     protected override void OnInitialized()
     {
