@@ -10,14 +10,22 @@ namespace ScrapRefined.ViewModels
     public class CategoryViewModel
     {
         private NavigationManager _navigationManager;
+        private IndexViewModel _indexViewModel;
 
-        public CategoryViewModel(NavigationManager navigationManager)
+        public CategoryViewModel(NavigationManager navigationManager, IndexViewModel indexViewModel)
         {
             _navigationManager = navigationManager;
+            _indexViewModel = indexViewModel;
         }
-        public async Task OpenCategory()
+        public void OpenCategory()
         {
             _navigationManager.NavigateTo("/CategoryPage", false);
+        }
+        public void OpenIndexByCategory(int id)
+        {
+            _indexViewModel.Products = _indexViewModel.AllProducts.Where(p => p.Category.Id == id);
+            _indexViewModel.IsFirstLoading = false;
+            _navigationManager.NavigateTo("/", true);
         }
     }
 }
