@@ -1,9 +1,33 @@
 ﻿@page "/myProfile"
 
 <div class="container-fluid">
-    <div class="row text-center">
-        <p>My profile</p>
-        <p>Hi, Thomas!</p>
+    <div class="row text-center justify-content-center">
+        <p class="py-2"></p>
+        <img style="height:90px; width:120px" src="https://i.ibb.co/3Ttwh62/My-project.png" class="rounded-circle center-block">
+        <p class="fw-bold">Hi, Thomas!</p>
+    </div>
+    <div class="row">
+        <ul class="list-group p-0">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Your points
+                <span class="fw-bold">115</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Number of favourite products
+                <span class="fw-bold">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Number of your tutorials
+                <span class="fw-bold">4</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Join date
+                <span class="fw-bold">01.11.2022</span>
+            </li>
+        </ul>
+    </div>
+    <div class="row flex-grow-1 mt-5 px-2">
+        <button type="button" class="btn btn-success">Logout</button>
     </div>
 </div>
 
