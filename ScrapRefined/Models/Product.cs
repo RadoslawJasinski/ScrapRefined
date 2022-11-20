@@ -9,7 +9,7 @@ namespace ScrapRefined.Models
         public User AddedBy { get; set; }
         public bool IsSold { get; set; }
         public string Description { get; set; }
-        //public List<string> Tags { get; set; }
+        //public List<Tag> Tags { get; set; }
         public Category Category { get; set; }
         public string CoverURL { get; set; }
         public List<ProductImage> Images { get; set; }

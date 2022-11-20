@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScrapRefined.DAL;
 
@@ -10,9 +11,10 @@ using ScrapRefined.DAL;
 namespace ScrapRefined.Migrations
 {
     [DbContext(typeof(ScrapRefinedDbContext))]
-    partial class ScrapRefinedDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221120001324_addUserFavourite")]
+    partial class addUserFavourite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -86,41 +88,6 @@ namespace ScrapRefined.Migrations
                     b.ToTable("ProductImages");
                 });
 
-            modelBuilder.Entity("ScrapRefined.Models.ProductTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("ProductTags");
-                });
-
-            modelBuilder.Entity("ScrapRefined.Models.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tag");
-                });
-
             modelBuilder.Entity("ScrapRefined.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -190,21 +157,6 @@ namespace ScrapRefined.Migrations
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("ScrapRefined.Models.ProductTag", b =>
-                {
-                    b.HasOne("ScrapRefined.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId");
-
-                    b.HasOne("ScrapRefined.Models.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId");
-
-                    b.Navigation("Product");
-
-                    b.Navigation("Tag");
                 });
 
             modelBuilder.Entity("ScrapRefined.Models.UserFavouriteProduct", b =>
