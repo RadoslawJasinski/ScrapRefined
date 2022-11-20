@@ -27,7 +27,7 @@ public static class MauiProgram
 		builder.Services.AddScoped<ProductDetailViewModel>();
         builder.Services.AddTransient<AddProductViewModel>();
         builder.Services.AddTransient<CategoryViewModel>();
-        builder.Services.AddSingleton<ListObservedViewModel>();
+        builder.Services.AddSingleton<ListObsevedViewModel>();
         return builder.Build();
 	}
 }

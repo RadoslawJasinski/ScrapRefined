@@ -1,5 +1,18 @@
-﻿<h3>ListObservedPage</h3>
-
+﻿@page "/ListObserved"
+<h3>ListObservedPage</h3>
+<div class="list-group">
+    @foreach (var product in indexVM.Products.Take(indexVM.Products.Count()))
+    {
+        <div @onclick="() => productDetailsVM.OpenDetails(product)">
+            <img src="@product.CoverURL" alt="">
+        </div>
+    }
+    <button type="button" class="list-group-item list-group-item-action active"></button>
+    <button type="button" class="list-group-item list-group-item-action"></button>
+    <button type="button" class="list-group-item list-group-item-action"></button>
+    <button type="button" class="list-group-item list-group-item-action"></button>
+    <button type="button" class="list-group-item list-group-item-action"></button>
+</div>
 @code {
 
 }
