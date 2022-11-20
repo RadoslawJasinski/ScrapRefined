@@ -27,5 +27,10 @@ namespace ScrapRefined.ViewModels
             _indexViewModel.IsFirstLoading = false;
             _navigationManager.NavigateTo("/", true);
         }
+        public void OpenIndexBoth()
+        {
+            _indexViewModel.IsFirstLoading = true;
+            _navigationManager.NavigateTo("/", true);
+        }
     }
 }

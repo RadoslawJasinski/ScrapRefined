@@ -12,6 +12,8 @@ namespace ScrapRefined.ViewModels
     public class IndexViewModel
     {
         ProductRepository _productRepository;
+
+
         public IEnumerable<Product> Products { get; set; } = new List<Product>();
         public IEnumerable<Product> AllProducts { get; set; } = new List<Product>();
         public bool IsFirstLoading { get; set; } = true;
@@ -19,6 +21,7 @@ namespace ScrapRefined.ViewModels
         public IndexViewModel(ProductRepository productRepository)
         {
             _productRepository = productRepository;
+
         }
 
         public async Task LoadProducts()
@@ -26,5 +29,6 @@ namespace ScrapRefined.ViewModels
             AllProducts = await _productRepository.GetAllAsync();
             Products = AllProducts;
         }
+
     }
 }

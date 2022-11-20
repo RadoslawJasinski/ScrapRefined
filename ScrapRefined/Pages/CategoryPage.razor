@@ -1,41 +1,30 @@
 ﻿@page "/CategoryPage"
 @using ScrapRefined.ViewModels;
 @inject CategoryViewModel categoryVM
+@inject IndexViewModel indexVM
 
 
-<div class="container-fluid d-flex flex-column vh-100 text-center align-content-center justify-content-center" style="background-color:#e0e0e0">
-    <div class=" container h-100 text-center align-content-center justify-content-center" style="background-color:#e0e0e0">
-        <div class="col h-100 text-center align-content-center justify-content-center">
-            <div class="row m-3 h-h25 w-100 text-center">
-                <div class="d-flex text-center align-content-center justify-content-center">
-                    <h3 class="text-center bg-transparent">Select Category</h3>
-                </div>
-            </div>
-            <div class="row m-3 h-25 w-100">
-                <div class="d-flex " >
-                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => categoryVM.OpenIndexByCategory(1)">
-                        Reworked 
-                    </button>
-                </div>
-            </div> 
-            <div class="row m-3 h-25 w-100">
-                <div class="d-flex">
-                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => categoryVM.OpenIndexByCategory(2)">
-                        Unreworked
-                    </button>
-                 </div>
-
-            </div>
-            
-            <div class="row m-3 h-25 w-100 ">
-                <div class="d-flex">
-                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0">
-                        Last viewed item
-                     </button>
-                </div>
-            </div>
+<div class="container-fluid container d-flex vh-100" style="background-color:#e0e0e0"> 
+    <div class="col">
+        <div class="row m-1 mt-1 text-center">
+             <p class="fs-4">Select Category</p>
         </div>
-    </div>
+        <div class="row h-25 m-1 text-center">
+            <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => categoryVM.OpenIndexByCategory(1)">
+                <p class="fs-4">Reworked </p>
+            </button>
+        </div>
+        <div class="row h-25 m-1 text-center">
+            <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => categoryVM.OpenIndexByCategory(2)">
+                <p class="fs-4">Unreworked</p>
+            </button>
+        </div>
+        <div class="row h-25 m-1 text-center">
+            <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => categoryVM.OpenIndexBoth()">
+                <p class="fs-4">Both</p>
+            </button>
+        </div>
+     </div>
  </div>
 @code {
     
