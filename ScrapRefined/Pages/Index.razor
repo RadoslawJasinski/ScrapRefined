@@ -1,8 +1,10 @@
 ﻿@page "/"
+@using ScrapRefined.Models;
 @using ScrapRefined.ViewModels
 @inject IndexViewModel indexVM
 @inject ProductDetailViewModel productDetailsVM
 @using WMBlazorSlickCarousel.WMBSC
+
 
 @if(indexVM.Products.Count() == 0){
     <p>Loading</p>
@@ -16,12 +18,12 @@ else
                     <div class="d-flex">
                         <div class="p-0 flex-grow-1">
                             <div class="form-outline">
-                                <input type="search" id="form1" class="form-control" />
+                                <input type="search" id="form1" class="form-control" @bind="nameFilter" />
 
                             </div>
                         </div>
                         <div class="p-0">
-                            <button type="button" class="btn btn-primary" style="background-color:#1f6a53; border-color:#e0e0e0">
+                            <button type="button" class="btn btn-primary" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="Filter">
                                 <i class="bi bi-search fs-6" style="color:#e0e0e0"></i>
                             </button>
                         </div>
@@ -53,13 +55,17 @@ else
 @code{
     public BlazorSlickCarousel theCarousel;
     public WMBSCInitialSettings configurations;
-
+    private string nameFilter = string.Empty;
+    public IEnumerable<Product> ProductsFilter { get; set; } = new List<Product>();
 
     protected override async Task OnInitializedAsync()
     {
         await indexVM.LoadProducts();
     }
-
+    private void Filter()
+    {
+        ProductsFilter = indexVM.Products.Where(x => x.Name.ToLower().Contains(nameFilter.Trim().ToLower())).ToList();
+    }
     protected override void OnInitialized()
     {
         configurations = new WMBSCInitialSettings
@@ -71,4 +77,7 @@ else
                 infinite = false
             };
     }
+
+
+
 }

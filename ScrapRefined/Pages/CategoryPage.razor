@@ -1,6 +1,5 @@
 ﻿@page "/CategoryPage"
-@using ScrapRefined.ViewModels;
-@inject IndexCategoryViewModel indexVM
+
 
 <div class="container-fluid d-flex flex-column vh-100 text-center align-content-center justify-content-center" style="background-color:#e0e0e0">
     <div class=" container h-100 text-center align-content-center justify-content-center" style="background-color:#e0e0e0">
@@ -12,14 +11,14 @@
             </div>
             <div class="row m-3 h-25 w-100">
                 <div class="d-flex " >
-                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => indexVM.OpenProductCategory(1)">
+                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @*@onclick="() => indexVM.OpenProductCategory(1)"*@>
                         Reworked 
                     </button>
                 </div>
             </div> 
             <div class="row m-3 h-25 w-100">
                 <div class="d-flex">
-                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @onclick="() => indexVM.OpenProductCategory(2)">
+                    <button type="button" class="btn btn-primary text-center  w-100" style="background-color:#1f6a53; border-color:#e0e0e0" @*@onclick="() => indexVM.OpenProductCategory(2)"*@>
                         Unreworked
                     </button>
                  </div>
