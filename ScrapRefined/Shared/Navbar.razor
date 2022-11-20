@@ -9,7 +9,7 @@
         <button class="border-0 bg-transparent nav-item" @onclick="(() => navbarVM.OpenSite(observedUrl,false))"> <i class="bi bi-heart fs-2" style="color:#e0e0e0" /></button>
         <button class="border-0 bg-transparent nav-item" @onclick="(() => navbarVM.OpenSite(addUrl,false))"> <i class="bi bi-plus-circle fs-2" style="color:#e0e0e0" /></button>
         <button class="border-0 bg-transparent nav-item"> <i class="bi bi-book fs-2" style="color:#e0e0e0" /></button>
-        <button class="border-0 bg-transparent nav-item"> <i class="bi bi-person fs-2" style="color:#e0e0e0" /></button>
+        <button class="border-0 bg-transparent nav-item" @onclick="(() => navbarVM.OpenSite(myProfileUrl,false))"> <i class="bi bi-person fs-2" style="color:#e0e0e0" /></button>
 </nav>
 </div>
 
@@ -17,4 +17,5 @@
     string categoryUrl = "/CategoryPage";
     string observedUrl = "/ListObserved";
     string addUrl = "/AddProduct";
+    string myProfileUrl = "/myProfile";
 }
